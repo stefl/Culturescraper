@@ -4,7 +4,7 @@ require 'open-uri'
 require 'dalli'
 require 'uri'
 
-CACHE = Dalli::Client.new
+CACHE = Dalli::Client.new(ENV["MEMCACHE_SERVER"])
 
 class Contender
   attr_accessor :url
