@@ -14,7 +14,7 @@ get '/' do
 end
 
 get '/image' do
-  response.headers['Cache-Control'] = "public, max-age=#{60 * 60 * 24}"
+  #response.headers['Cache-Control'] = "public, max-age=#{60 * 60 * 24}"
   content_type :json
   url = params[:url]
   jsonp({:image=>ImageScraper.get_the_biggest_image(url), :url=>url})
