@@ -56,7 +56,7 @@ class ImageScraper
     end
     
     contenders.sort! {|a,b| a.weight <=> b.weight }
-    "http://#{contenders.reverse.pop.url.to_s}"
+    contenders.reverse.pop.url.to_s
   end
 
 end

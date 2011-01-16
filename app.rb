@@ -6,6 +6,7 @@ require "sinatra/jsonp"
 require "json"
 require "imagescraper"
 require 'cgi'
+require 'open-uri'
 
 set :public, File.dirname(__FILE__) + '/public'
 
@@ -25,7 +26,9 @@ get '/image' do
 end
 
 get '/show' do
-  content_type :jpeg
   url = params[:url]
-  open(ImageScraper.get_the_biggest_image(url)).read
+  to_send = ImageScraper.get_the_biggest_image(url)
+  bytes = open(to_send.to_s).read
+  content_type "image/jpeg"
+  bytes
 end
