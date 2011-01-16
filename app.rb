@@ -19,3 +19,9 @@ get '/image' do
   url = params[:url]
   jsonp({:image=>ImageScraper.get_the_biggest_image(url), :url=>url})
 end
+
+get '/show' do
+  content_type :jpeg
+  url = params[:url]
+  open(ImageScraper.get_the_biggest_image(url)).read
+end
