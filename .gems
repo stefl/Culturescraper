@@ -3,3 +3,4 @@ nokogiri
 json
 sinatra-jsonp
 dalli
+haml
