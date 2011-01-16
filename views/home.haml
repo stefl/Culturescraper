@@ -30,6 +30,15 @@
         Send a GET request of this format to this little web service:
       
       %div#get
+        %a{:href=>"http://culturescraper.heroku.com/show?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}"}
+          = "http://culturescraper.heroku.com/show?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}"
+      
+      %h2
+        You will get the best image on the page (hopefully)
+      
+      %img{:src=>"http://culturescraper.heroku.com/show?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}"}
+        
+      %div#get
         %a{:href=>"http://culturescraper.heroku.com/image?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}&callback=abc123"}
           = "http://culturescraper.heroku.com/image?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}&callback=abc123"
       
@@ -37,6 +46,7 @@
         You will receive something like the following as JSONP:
       
       %textarea
+        abc123({"image":"http://http://www.vads.ac.uk/images/NIRP/CECIL/medium/P160.jpg","url":"http://www.vads.ac.uk/large.php?uid=88513"})
         
       %div#footer
         Knocked together by 

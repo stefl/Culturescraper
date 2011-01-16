@@ -26,6 +26,7 @@ get '/image' do
 end
 
 get '/show' do
+  response.headers['Cache-Control'] = "public, max-age=#{60 * 60 * 24}"
   url = params[:url]
   to_send = ImageScraper.get_the_biggest_image(url)
   bytes = open(to_send.to_s).read
