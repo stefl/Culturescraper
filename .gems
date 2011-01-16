@@ -1,3 +1,4 @@
 sinatra
 nokogiri
-jsonp
+json
+sinatra-jsonp
