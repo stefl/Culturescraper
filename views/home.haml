@@ -1,0 +1,58 @@
+!!!
+%html{:xmlns=>"http://www.w3.org/1999/xhtml"}
+  %head
+    %link{:rel=>"shortcut icon", :href=>"/favicon.ico"}
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html;charset=utf-8"}
+
+    %title= "Culturegrid Large Image Scraper"
+    
+    %link{:href=>'http://fonts.googleapis.com/css?family=Arvo', :rel=>'stylesheet', :type=>'text/css'}
+    %style{:type=>"text/css"}
+      h1, h2 { font-family: 'Arvo', arial, serif; color: #454; margin-top: 2em;}
+      h2 {font-size: 100%};
+      body, p { font-family: Helvetica, sans-serif !important; }
+      textarea {padding: 1em; border: 2px solid #888; width: 96%; height: 24em;}
+      div#page { width: 42em; margin: auto; *zoom: 1; font-family: Helvetica, sans-serif !important;}
+      div#get { background-color: #efe; padding: 1em; }
+      div#footer {margin-top: 2em; margin-bottom: 2em;}
+      a { color: #484;}
+  %body
+    %div#page
+      %h1
+        Culturegrid Large Image Scraper
+
+      %p
+        %a{:href=>"http://culturegrid.org.uk"}
+          Culturegrid 
+        is a huge index of cultural assets in the UK (books, photographs, videos, locations...), and has a search API. At the moment it doesn't return the large images for the URLs it indexes. This adds that feature.
+
+      %h2
+        Send a GET request of this format to this little web service:
+      
+      %div#get
+        %a{:href=>"http://culturescraper.heroku.com/image?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}&callback=abc123"}
+          = "http://culturescraper.heroku.com/image?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}&callback=abc123"
+      
+      %h2
+        You will receive something like the following as JSONP:
+      
+      %textarea
+        
+      %div#footer
+        Knocked together by 
+        %a{:href=>"http://stef.io", :rel=>"me"}
+          Stef
+        (
+        %a{:href=>"http://twitter.com/stef", :rel=>"me"}
+          @stef on Twitter
+        )
+        
+        for 
+        
+        %a{:href=>"http://culturehackday.org.uk"}
+          Culture Hack Day
+        
+        %a{:href=>"http://github.com/stefl/culturegridjsonp"}
+          Source code and documentation
+          
+        
