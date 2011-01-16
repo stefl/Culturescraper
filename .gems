@@ -2,3 +2,4 @@ sinatra
 nokogiri
 json
 sinatra-jsonp
+dalli
