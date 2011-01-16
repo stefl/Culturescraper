@@ -9,6 +9,10 @@ require 'cgi'
 
 set :public, File.dirname(__FILE__) + '/public'
 
+configure do
+  CACHE = Dalli::Client.new(ENV["MEMCACHE_SERVER"])
+end
+
 get '/' do
   haml :home
 end
