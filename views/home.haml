@@ -43,6 +43,10 @@
       
       %img{:src=>"http://culturescraper.heroku.com/show?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}"}
         
+      %form{:action=>"/show", :method=>"get"}
+        %input{:type=>"text", :name=>"url"}
+        %input{:type=>"submit"}
+          Try it
       %div#get
         %a{:href=>"http://culturescraper.heroku.com/image?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}&callback=abc123"}
           = "http://culturescraper.heroku.com/image?url=#{CGI.escape("http://www.vads.ac.uk/large.php?uid=88513")}&callback=abc123"

@@ -11,13 +11,6 @@ class Contender
   def initialize u
     self.url = u
     response = nil
-    # uri = URI.parse(self.url)
-    #     Net::HTTP.start(uri.host, 80) {|http|
-    #       path = "#{uri.path}?#{uri.query}"
-    #       puts path
-    #       response = http.head(path)
-    #     }
-    #     self.content_length = response['content-length'].to_i
     self.seen_again!
   end
   
@@ -31,6 +24,18 @@ class Contender
   
   def weight
     seen
+  end
+  
+  def size
+    return @size if @size
+    response = nil
+    uri = URI.parse(self.url)
+    Net::HTTP.start(uri.host, 80) {|http|
+      path = "#{uri.path}?#{uri.query}"
+      puts path
+      response = http.head(path)
+    }
+    @size = response['content-length'].to_i
   end
 
 end
@@ -55,7 +60,9 @@ class ImageScraper
       contenders << Contender.new(image_uri.to_s)
     end
     
+    contenders.reject! {|a| a.seen > contenders[0].seen*5}
     contenders.sort! {|a,b| a.weight <=> b.weight }
+    contenders.reverse[0..5].sort! {|a,b| puts a.size; a.size <=> b.size}
     contenders.reverse.pop.url.to_s
   end
 
