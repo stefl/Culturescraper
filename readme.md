@@ -5,3 +5,5 @@ No fear - run the URL of the resulting web page through this scraper and it will
 It's not perfect, but it should improve over time. 
 
 Try it here: http://culturescraper.heroku.com
+
+Contact me at [Stef.io](http://stef.io)
